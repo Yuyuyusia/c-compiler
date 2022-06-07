@@ -1,32 +1,34 @@
-obj = sample
+bj = sample
 fn = .c
+test = sample3
 all:
-	make gen_comp
-	make compile
-	make gcc
-	make llvm
+        make gen_comp
+        make compile
+        make gcc
+        make llvm
 
 gen_comp:
-	lex lex.l
-	yacc yacc.y
-	yacc -d yacc.y
-	cc lex.yy.c y.tab.c -o cpl
+        lex lex.l
+        yacc yacc.y
+        yacc -d yacc.y
+        cc lex.yy.c y.tab.c -o cpl
 
 compile:
-	for num in 1 2 3 4 5 6 7; do\
-		./cpl < $(obj)$$num$(fn) ;\
-	done
+        for num in 1 2 3 4 5 6 7; do\
+                ./cpl < $(obj)$$num$(fn) ;\
+        ./cpl < $(test).c;\
+        done
 
 gcc:
-	gcc -E sample3.c -o sample3_pre
-	gcc -S sample3.c -o sample3_arm
-	gcc -S -masm=intel sample3.c -o sample3_intel
+        gcc -E $(test).c -o $(test)_pre
+        gcc -S $(test).c -o $(test)_arm
+        gcc -S -masm=intel $(test).c -o $(test)_intel
 
 llvm:
-	clang -S -emit-llvm sample3.c
-	opt -S -globalopt -loop-simplify -mem2reg sample3.ll
-	llc sample3.ll
-	as sample3.s -o sample3.o
-	ld sample3.o -o sample3_llvm -lc --dynamic-linker /lib64/ld-linux-x86-64.so.2
+        clang -S -emit-llvm $(test).c
+        opt -S -globalopt -loop-simplify -mem2reg $(test).ll
+        llc $(test).ll
+        as $(test).s -o $(test).o
+        ld $(test).o -o $(test)_llvm -lc --dynamic-linker /lib64/ld-linux-x86-64.so.2
 
 
