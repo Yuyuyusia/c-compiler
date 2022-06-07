@@ -1,4 +1,4 @@
-bj = sample
+obj = sample
 fn = .c
 test = sample3
 all:
@@ -30,5 +30,6 @@ llvm:
         llc $(test).ll
         as $(test).s -o $(test).o
         ld $(test).o -o $(test)_llvm -lc --dynamic-linker /lib64/ld-linux-x86-64.so.2
+
 
 
