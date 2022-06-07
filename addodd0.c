@@ -9,6 +9,6 @@ int main()
 		}
 	};
 	printf( "add all odd numbers in 1 ~ 100 : ") ;
-	printf( "%d", count )ㄋ ;
+	printf( "%d", count ) ;
 	return 0;
 }
