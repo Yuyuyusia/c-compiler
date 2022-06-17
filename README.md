@@ -361,7 +361,14 @@ ubuntu 20.04.4
 	##### make 之後 => 有產生應生成之檔案
 	
 
-
+```shell
+mkdir final
+cd final
+echo "password" | sudo -S apt-get install -y git build-essential flex bison llvm clang
+git clone https://github.com/Yuyuyusia/c-compiler
+cd c-compiler
+make all
+```
 ---
 
 
