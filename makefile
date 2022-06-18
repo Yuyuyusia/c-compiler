@@ -16,8 +16,8 @@ gen_comp:
 compile:
 	for num in 1 2 3 4 5 6 7; do\
 		./cpl < $(obj)$$num$(fn) ;\
-	./cpl < $(test).c;\
 	done
+	./cpl < $(test).c;
 
 gcc:
 	gcc -E $(test).c -o $(test)_pre
