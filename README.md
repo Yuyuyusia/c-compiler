@@ -8,6 +8,32 @@ ubuntu 20.04.4
 
 ---
 
+## 執行方法
+#### 於 ubuntu 環境中建立以下的 init.sh 檔案後（使用 vim 或 nano）
+	```
+	init.sh
+	```
+	###### init.sh
+	```shell
+	mkdir final
+	cd final
+	echo "password" | sudo -S apt-get install -y git build-essential flex bison llvm clang
+	git clone https://github.com/Yuyuyusia/c-compiler
+	cd c-compiler
+	make all
+	```
+
+#### 執行 init.sh 即可完成本次報告所有範圍
+ 	```
+	source init.sh
+	```
+
+
+# 以下待修正與調整
+
+
+---
+
 ## 大綱
 #### 一、簡介開發何種程式語言編譯器
 #### 二、使用何種語言開發
@@ -361,15 +387,7 @@ ubuntu 20.04.4
 	##### make 之後 => 有產生應生成之檔案
 	
 
-```shell
-mkdir final
-cd final
-echo "password" | sudo -S apt-get install -y git build-essential flex bison llvm clang
-git clone https://github.com/Yuyuyusia/c-compiler
-cd c-compiler
-make all
-```
----
+
 
 
 ## 六、心得
