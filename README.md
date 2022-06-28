@@ -13,7 +13,7 @@ ubuntu 20.04.4
 	```
 	init.sh
 	```
-	###### init.sh
+###### init.sh
 	```shell
 	mkdir final
 	cd final
